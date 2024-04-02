@@ -106,8 +106,9 @@ datetime.datetime(2024, 4, 2, 8, 0, 36, 208207, tzinfo=datetime.timezone.utc)
 'Новость последних минут из США: соперница Дональда Трампа Никки Хейли объявила о своем выходе из предвыборной гонки. Тем сам...'
 
 # 9. Все комментарии к лучшему посту.
->>> best_post.comment_set.values('comment_time', 'user', 'comment_rating','comment_text')
-b_p_comments  = <QuerySet [{'comment_time': datetime.datetime(2024, 4, 2, 9, 13, 9, 861545,
+>>> b_p_comments = best_post.comment_set.values('comment_time', 'user', 'comment_rating','comment_text')
+>>> b_p_comments
+<QuerySet [{'comment_time': datetime.datetime(2024, 4, 2, 9, 13, 9, 861545,
                 tzinfo=datetime.timezone.utc), 'user': 5, 'comment_rating': -1, 'comment_text': 'Даёшь Трампа! Трамп -наш президент!'}]>
 # 9.1 Дата и время комментария к лучшему посту (он единственный).
 >>> b_p_comments_time = b_p_comments[0]['comment_time']
