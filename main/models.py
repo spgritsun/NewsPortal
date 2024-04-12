@@ -31,9 +31,9 @@ class Post(models.Model):
     post_text = models.TextField()
     post_rating = models.IntegerField(default=0)
     @classmethod
-    def get_all_news(cls):
-        all_news = cls.objects.filter(is_news=True)
-        return all_news
+    def get_latest_news_pk(cls):
+        latest_news_pk = cls.objects.filter(is_news=True).last().pk
+        return latest_news_pk
 
     def like(self):
         self.post_rating += 1

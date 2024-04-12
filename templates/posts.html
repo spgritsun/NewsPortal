@@ -3,16 +3,15 @@
 
 <!-- Название у нас будет posts -->
 {% block title %}
-News
+Posts
 {% endblock title %}
 
 <!-- В контенте на странице мы выводим все посты-->
 {% block content %}
-   <h3>Все новости</h3>
-
+   <h3>Все посты</h3>
    <hr>
    <!-- Выводим посты, только если они есть с помощью тега if -->
-   {% if posts%}
+   {% if posts1%}
        <table class="table"> <!-- Начинаем описывать таблицу -->
 
            <tr> <!-- Добавляем строку -->
@@ -29,14 +28,13 @@ News
                    Первые 20 символов текста
                </th>
                </tr> <!-- Не забываем закрыть HTML-тег строки -->
-           {% for post in posts %}
-               {% if post.is_news %}
-                   <tr>
-                       <td>{{ post.post_headline }}</td>
-                       <td>{{ post.post_time|date:'j.m.Y H:i'}}</td>
-                       <td>{{ post.post_text|truncatechars:20 }}</td>
-                   </tr>
-               {% endif %}
+           {% for post in posts1 %}
+               <tr>
+                   <td>{{ post.post_headline }}</td>
+                   <td>{{ post.post_time|date:'j.m.Y H:i'}}</td>
+                   <td>{{ post.post_text|truncatechars:20 }}</td>
+               </tr>
+
            {% endfor %}
        </table> <!-- ... и таблицы -->
    {% else %}
