@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Bare - Start Bootstrap Template</title>
+        <title>
+            {% block title %}
+            {{ flatpage.content }}
+            {% endblock title %}
+        </title>
         <!-- Favicon-->
         <!-- Core theme CSS (includes Bootstrap)-->
         {% load static %}
@@ -15,7 +19,7 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
            <div class="container">
-               <a class="navbar-brand" href="#">Django flatpages</a>
+               <a class="navbar-brand" href="#">Django.views</a>
                <button class="navbar-toggler" type="button" data-toggle="collapse"
                        data-target="#navbarResponsive"
                        aria-controls="navbarResponsive" aria-expanded="false"
@@ -25,12 +29,12 @@
                <div class="collapse navbar-collapse" id="navbarResponsive">
                    <ul class="navbar-nav ml-auto">
                        <li class="nav-item active">
-                           <a class="nav-link" href="/posts/">Home
-                               <span class="sr-only">(current)</span>
+                           <a class="nav-link" href="/news/">Latest news
+                               <span class="sr-only"></span>
                            </a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" href="/about/">About</a>
+                           <a class="nav-link" href="/news/">All news</a>
                        </li>
                        <li class="nav-item">
                            <a class="nav-link" href="/posts/">Posts</a>

@@ -1,0 +1,45 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+
+<!-- Название у нас будет posts -->
+{% block title %}
+News
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все посты-->
+{% block content %}
+   <h3>Все новости</h3>
+   <hr>
+   <!-- Выводим посты, только если они есть с помощью тега if -->
+   {% if posts%}
+       <table class="table"> <!-- Начинаем описывать таблицу -->
+
+           <tr> <!-- Добавляем строку -->
+
+               <th> <!-- Добавляем ячейку в строку -->
+
+                   Заголовок
+               </th>
+               <th> <!-- Добавляем ещё одну ячейку в строку и так далее -->
+
+                   Дата публикации
+               </th>
+               <th>
+                   Первые 20 символов текста
+               </th>
+               </tr> <!-- Не забываем закрыть HTML-тег строки -->
+           {% for post in posts %}
+               {% if post.is_news %}
+                   <tr>
+                       <td>{{ post.post_headline }}</td>
+                       <td>{{ post.post_time|date:'j.m.Y H:i'}}</td>
+                       <td>{{ post.post_text|truncatechars:20 }}</td>
+                   </tr>
+               {% endif %}
+           {% endfor %}
+       </table> <!-- ... и таблицы -->
+   {% else %}
+       <!-- Если постов нет, говорим, что постов нет ;) -->
+       <h4>Постов нет!</h4>
+   {% endif %}
+{% endblock content %}

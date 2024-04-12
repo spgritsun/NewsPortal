@@ -30,6 +30,10 @@ class Post(models.Model):
     post_headline = models.CharField(max_length=100)
     post_text = models.TextField()
     post_rating = models.IntegerField(default=0)
+    @classmethod
+    def get_all_news(cls):
+        all_news = cls.objects.filter(is_news=True)
+        return all_news
 
     def like(self):
         self.post_rating += 1
@@ -41,6 +45,9 @@ class Post(models.Model):
 
     def preview(self):
         return self.post_text[:124] + '...' if len(self.post_text) > 124 else self.post_text
+
+    def __str__(self):
+        return f'{self.post_headline}, {self.post_time}, {self.post_text[:20]}'
 
 
 class Comment(models.Model):

@@ -1,0 +1,43 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+
+<!-- Название у нас будет Product -->
+{% block title %}
+News
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим сам товар, идентификатор которого был передан в url -->
+{% block content %}
+   <h3>Выбранная новость</h3>
+   <hr>
+   <!-- Выводим посты, только если они есть с помощью тега if -->
+   {% if piece_of_news and piece_of_news.is_news%}
+       <table class="table"> <!-- Начинаем описывать таблицу -->
+
+           <tr> <!-- Добавляем строку -->
+
+               <th> <!-- Добавляем ячейку в строку -->
+
+                   Заголовок новости
+               </th>
+               <th> <!-- Добавляем ещё одну ячейку в строку и так далее -->
+                   Текст
+               </th>
+               <th>
+                   Дата публикации
+               </th>
+               </tr> <!-- Не забываем закрыть HTML-тег строки -->
+               {% if piece_of_news.is_news %}
+                   <tr>
+                       <td>{{ piece_of_news.post_headline }}</td>
+                       <td>{{ piece_of_news.post_time|date:'j.m.Y'}}</td>
+                       <td>{{ piece_of_news.post_text }}</td>
+                   </tr>
+               {% endif %}
+
+       </table> <!-- ... и таблицы -->
+   {% else %}
+       <!-- Если постов нет, говорим, что постов нет ;) -->
+       <h4>По этому адресу нет новостей!</h4>
+   {% endif %}
+{% endblock content %}
