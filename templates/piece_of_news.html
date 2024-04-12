@@ -1,7 +1,7 @@
 <!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
 {% extends 'flatpages/default.html' %}
-
-<!-- Название у нас будет Product -->
+{% load custom_filters %}
+<!-- Название у нас будет News -->
 {% block title %}
 News
 {% endblock title %}
@@ -28,8 +28,8 @@ News
                </th>
                </tr> <!-- Не забываем закрыть HTML-тег строки -->
                    <tr>
-                       <td>{{ post.post_headline }}</td>
-                       <td>{{ post.post_text }}</td>
+                       <td>{{ post.post_headline|censor }}</td>
+                       <td>{{ post.post_text|censor }}</td>
                        <td>{{ post.post_time|date:'j.m.Y'}}</td>
                    </tr>
        </table> <!-- ... и таблицы -->
