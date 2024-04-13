@@ -5,11 +5,6 @@ from django.views.generic import ListView, DetailView
 from .models import Post
 
 
-# def news(request):
-#     data = {'latest_news_pk': latest_news_pk}
-#     return render(request, 'news.html', data)
-
-
 class PostList(ListView):
     # Указываем модель, объекты которой мы будем выводить
     model = Post
@@ -21,11 +16,6 @@ class PostList(ListView):
     # Это имя списка, в котором будут лежать все объекты.
     # Его надо указать, чтобы обратиться к списку объектов в html-шаблоне.
     context_object_name = 'posts'
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['latest_news_pk'] = Post.get_latest_news_pk()
-    #     return context
 
 
 class PostList1(ListView):
@@ -40,11 +30,6 @@ class PostList1(ListView):
     # Его надо указать, чтобы обратиться к списку объектов в html-шаблоне.
     context_object_name = 'posts1'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['latest_news_pk'] = Post.get_latest_news_pk()
-    #     return context
-
 
 class NewsDetail(DetailView):
     # Модель всё та же, но мы хотим получать информацию по отдельному товару
@@ -53,8 +38,3 @@ class NewsDetail(DetailView):
     template_name = 'piece_of_news.html'
     # Название объекта, в котором будет выбранная новость
     context_object_name = 'post'
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['latest_news_pk'] = Post.get_latest_news_pk()
-    #     return context
