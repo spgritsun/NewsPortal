@@ -32,7 +32,7 @@ class PostList1(ListView):
 
 
 class NewsDetail(DetailView):
-    # Модель всё та же, но мы хотим получать информацию по отдельному товару
+    # Модель всё та же, но мы хотим получать информацию по отдельному посту, и если новость, покажем её.
     model = Post
     # Используем другой шаблон — piece_of_news.html
     template_name = 'piece_of_news.html'
