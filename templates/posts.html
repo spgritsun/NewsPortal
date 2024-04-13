@@ -1,6 +1,6 @@
 <!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
 {% extends 'flatpages/default.html' %}
-
+{% load custom_filters %}
 <!-- Название у нас будет posts -->
 {% block title %}
 Posts
@@ -30,9 +30,9 @@ Posts
                </tr> <!-- Не забываем закрыть HTML-тег строки -->
            {% for post in posts1 %}
                <tr>
-                   <td>{{ post.post_headline }}</td>
+                   <td>{{ post.post_headline|censor  }}</td>
                    <td>{{ post.post_time|date:'j.m.Y H:i'}}</td>
-                   <td>{{ post.post_text|truncatechars:20 }}</td>
+                   <td>{{ post.post_text|truncatechars:20|censor  }}</td>
                </tr>
 
            {% endfor %}

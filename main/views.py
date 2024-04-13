@@ -22,10 +22,10 @@ class PostList(ListView):
     # Его надо указать, чтобы обратиться к списку объектов в html-шаблоне.
     context_object_name = 'posts'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['latest_news_pk'] = Post.get_latest_news_pk()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['latest_news_pk'] = Post.get_latest_news_pk()
+    #     return context
 
 
 class PostList1(ListView):
@@ -40,10 +40,10 @@ class PostList1(ListView):
     # Его надо указать, чтобы обратиться к списку объектов в html-шаблоне.
     context_object_name = 'posts1'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['latest_news_pk'] = Post.get_latest_news_pk()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['latest_news_pk'] = Post.get_latest_news_pk()
+    #     return context
 
 
 class NewsDetail(DetailView):
@@ -54,7 +54,7 @@ class NewsDetail(DetailView):
     # Название объекта, в котором будет выбранная новость
     context_object_name = 'post'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['latest_news_pk'] = Post.get_latest_news_pk()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['latest_news_pk'] = Post.get_latest_news_pk()
+    #     return context

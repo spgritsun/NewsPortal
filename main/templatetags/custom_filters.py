@@ -9,10 +9,9 @@ register = template.Library()
 def censor(text):
     if not isinstance(text, str):
         raise ValueError("Фильтр цензурирования применяется только к строкам!")
-    censored_words = ["Скотина", "мразь", "Сволочь", "Идиот", "ублюдок", "редиска"]  # список слов для цензуры
+    censored_words = ["Скотина", "скотина", "Мразь", "мразь", "Сволочь", "сволочь", "Идиот", "идиот",
+                      "Ублюдок", "ублюдок", "Редиска", "редиска"]  # список слов для цензуры
     for word in censored_words:
         if word.upper() in text.upper():
-            text = text.replace(word, word[0] + "*"*len(word[1:]))
-
+            text = text.replace(word, word[0] + "*" * len(word[1:]))
     return text
-

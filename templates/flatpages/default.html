@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        {% load custom_tags %}
         <title>
             {% block title %}
             {{ flatpage.content }}
@@ -29,7 +30,7 @@
                <div class="collapse navbar-collapse" id="navbarResponsive">
                    <ul class="navbar-nav ml-auto">
                        <li class="nav-item active">
-                           <a class="nav-link" href="/news/{{ latest_news_pk }}">Latest news
+                           <a class="nav-link" href="/news/{% latest_news_pk %}">Latest news
                                <span class="sr-only"></span>
                            </a>
                        </li>
