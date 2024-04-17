@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'main',
     'fpages',
+    'django_filters',
 ]
 SITE_ID = 1
 

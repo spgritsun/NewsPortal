@@ -30,17 +30,38 @@ News
                </th>
                </tr> <!-- Не забываем закрыть HTML-тег строки -->
            {% for post in posts %}
-               {% if post.is_news %}
-                   <tr>
-                       <td>{{ post.post_headline|censor }}</td>
-                       <td>{{ post.post_time|date:'j.m.Y H:i'}}</td>
-                       <td>{{ post.post_text|censor|truncatechars:20}}</td>
-                   </tr>
-               {% endif %}
+               <tr>
+                   <td>{{ post.post_headline|censor }}</td>
+                   <td>{{ post.post_time|date:'j.m.Y H:i'}}</td>
+                   <td>{{ post.post_text|censor|truncatechars:20}}</td>
+               </tr>
            {% endfor %}
        </table> <!-- ... и таблицы -->
    {% else %}
        <!-- Если постов нет, говорим, что постов нет ;) -->
        <h4>Постов нет!</h4>
    {% endif %}
+    {# Добавляем пагинацию на страницу #}
+   {% if page_obj.has_other_pages %}
+       {# Информация о предыдущих страницах #}
+       {% if page_obj.has_previous %}
+           <a href="?page=1">1</a>
+           {% if page_obj.previous_page_number != 1 %}
+               ...
+               <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+           {% endif %}
+       {% endif %}
+
+       {# Информация о текущей странице #}
+       {{ page_obj.number }}
+
+       {# Информация о следующих страницах #}
+       {% if page_obj.has_next %}
+           <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+           {% if paginator.num_pages != page_obj.next_page_number %}
+               ...
+               <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+           {% endif %}
+       {% endif %}
+    {% endif %}
 {% endblock content %}
