@@ -16,10 +16,10 @@ urlpatterns = [
    path('articles/<int:pk>/', NewsDetail.as_view(), name='post_detail'),
    path('news/<int:pk>/edit/', PostUpdate.as_view(), name='post_update'),
    path('articles/<int:pk>/edit/', PostUpdate.as_view(), name='post_update'),
-   path('news/<int:pk>/delete/', PostDelete.as_view(), name='product_delete'),
-   path('articles/<int:pk>/delete/', PostDelete.as_view(), name='product_delete'),
+   path('news/<int:pk>/delete/', PostDelete.as_view(), name='news_delete'),
+   path('articles/<int:pk>/delete/', PostDelete.as_view(), name='article_delete'),
    path('posts/<int:pk>/', NewsDetail.as_view(), name='post_detail'),
    path('posts/<int:pk>/edit/', PostUpdate.as_view(), name='post_update'),
-   path('posts/<int:pk>/delete/', PostDelete.as_view(), name='product_delete'),
+   path('posts/<int:pk>/delete/', PostDelete.as_view(), name='post_delete'),
    path('posts/', PostList2.as_view(), name='post_list'),
 ]

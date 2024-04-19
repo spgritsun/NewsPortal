@@ -72,8 +72,6 @@ class NewsDetail(DetailView):
     context_object_name = 'post'
 
 
-
-
 class PostList2(ListView):
     # Указываем модель, объекты которой мы будем выводить
     model = Post
@@ -130,7 +128,13 @@ class PostUpdate(UpdateView):
 
 
 # Представление удаляющее товар.
+
+
+
 class PostDelete(DeleteView):
     model = Post
     template_name = 'post_delete.html'
-    success_url = reverse_lazy('news_list')
+    success_url = reverse_lazy('post_list')
+
+
+
