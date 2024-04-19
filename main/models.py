@@ -2,8 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
 
-
 # Create your models here.
+from django.urls import reverse
+
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -30,6 +31,7 @@ class Post(models.Model):
     post_headline = models.CharField(max_length=100)
     post_text = models.TextField()
     post_rating = models.IntegerField(default=0)
+
     @classmethod
     def get_latest_news_pk(cls):
         latest_news_pk = cls.objects.filter(is_news=True).last().pk
@@ -48,6 +50,9 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.post_headline}, {self.post_time}, {self.post_text[:20]}'
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.id)])
 
 
 class Comment(models.Model):

@@ -1,7 +1,9 @@
 from django.shortcuts import render
 # Импортируем класс, который говорит нам о том,
 # что в этом представлении мы будем выводить список объектов из БД
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .forms import PostForm
 from .models import Post
 from .filters import PostFilter
 
@@ -66,6 +68,7 @@ class NewsDetail(DetailView):
     # Название объекта, в котором будет выбранная новость
     context_object_name = 'post'
 
+
 class PostList2(ListView):
     # Указываем модель, объекты которой мы будем выводить
     model = Post
@@ -78,3 +81,27 @@ class PostList2(ListView):
     # Его надо указать, чтобы обратиться к списку объектов в html-шаблоне.
     context_object_name = 'posts1'
     paginate_by = 10
+
+
+# Добавляем новое представление для создания постов.
+class PostCreate(CreateView):
+    # Указываем нашу разработанную форму
+    form_class = PostForm
+    # модель товаров
+    model = Post
+    # и новый шаблон, в котором используется форма.
+    template_name = 'post_edit.html'
+
+
+# Добавляем представление для изменения постов.
+class PostUpdate(UpdateView):
+    form_class = PostForm
+    model = Post
+    template_name = 'post_edit.html'
+
+
+# Представление удаляющее товар.
+class PostDelete(DeleteView):
+    model = Post
+    template_name = 'post_delete.html'
+    success_url = reverse_lazy('post_list')
