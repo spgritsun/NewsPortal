@@ -3,12 +3,21 @@
 {% load custom_filters %}
 <!-- Название у нас будет posts -->
 {% block title %}
-News
+    {% if posts.0.is_news %}
+    News
+    {% else %}
+    Articles
+    {% endif %}
 {% endblock title %}
 
 <!-- В контенте на странице мы выводим все посты-->
 {% block content %}
-   <h3>Все новости</h3>
+    {% if posts.0.is_news %}
+    <h3>Все новости</h3>
+    {% else %}
+    <h3>Все статьи</h3>
+    {% endif %}
+
 
    <hr>
    <!-- Выводим посты, только если они есть с помощью тега if -->

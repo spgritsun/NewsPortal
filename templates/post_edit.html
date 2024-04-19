@@ -1,7 +1,18 @@
 {% extends 'flatpages/default.html' %}
-
+{% block title %}
+    {% if is_news %}
+    Create news
+    {% else %}
+    Create article
+    {% endif %}
+{% endblock title %}
 {% block content %}
-<h3>Создать пост</h3>
+{% if is_news %}
+    <h3>Создать новость</h3>
+    {% else %}
+    <h3>Создать статью</h3>
+    {% endif %}
+
 <hr>
 <form action="" method="post">
     {% csrf_token %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 # Импортируем класс, который говорит нам о том,
 # что в этом представлении мы будем выводить список объектов из БД
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .forms import PostForm
 from .models import Post
@@ -23,7 +23,10 @@ class PostList(ListView):
 
     def get_queryset(self):
         # Переопределяем метод и отфильтровываем объекты по полю is_news
-        return Post.objects.filter(is_news=True)
+        if self.request.path == reverse('news_list'):
+            return Post.objects.filter(is_news=True).order_by('-post_time')
+        else:
+            return Post.objects.filter(is_news=False).order_by('-post_time')
 
 
 class PostList1(ListView):
@@ -63,10 +66,12 @@ class PostList1(ListView):
 class NewsDetail(DetailView):
     # Модель всё та же, но мы хотим получать информацию по отдельному посту, и если новость, покажем её.
     model = Post
-    # Используем другой шаблон — piece_of_news.html
-    template_name = 'piece_of_news.html'
+    # Используем другой шаблон — detailed_post.html
+    template_name = 'detailed_post.html'
     # Название объекта, в котором будет выбранная новость
     context_object_name = 'post'
+
+
 
 
 class PostList2(ListView):
@@ -92,6 +97,30 @@ class PostCreate(CreateView):
     # и новый шаблон, в котором используется форма.
     template_name = 'post_edit.html'
 
+    def is_it_news(self):
+        if self.request.path == reverse(
+                'news_create'):  # Здесь 'news_create' - это имя URL маршрута для создания новости
+            is_news = True
+        else:
+            is_news = False
+        return is_news
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_news'] = self.is_it_news()
+        return context
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        # It should return an HttpResponse.
+        post = form.save(commit=False)
+        if self.request.path == reverse(
+                'news_create'):  # Здесь 'news_create' - это имя URL маршрута для создания новости
+            post.is_news = True
+        else:
+            post.is_news = False
+        return super().form_valid(form)
+
 
 # Добавляем представление для изменения постов.
 class PostUpdate(UpdateView):
@@ -104,4 +133,4 @@ class PostUpdate(UpdateView):
 class PostDelete(DeleteView):
     model = Post
     template_name = 'post_delete.html'
-    success_url = reverse_lazy('post_list')
+    success_url = reverse_lazy('news_list')

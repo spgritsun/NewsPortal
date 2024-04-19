@@ -36,12 +36,13 @@ News search
                </th>
                </tr> <!-- Не забываем закрыть HTML-тег строки -->
            {% for post in posts1 %}
+               {% if post.is_news %}
                <tr>
                    <td>{{ post.post_headline|censor  }}</td>
                    <td>{{ post.post_time|date:'j.m.Y H:i'}}</td>
                    <td>{{ post.post_text|truncatechars:20|censor  }}</td>
                </tr>
-
+               {% endif %}
            {% endfor %}
        </table> <!-- ... и таблицы -->
    {% else %}

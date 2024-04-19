@@ -11,7 +11,6 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = [
             'author',
-            'is_news',
             'categories',
             'post_headline',
             'post_text',
