@@ -127,10 +127,7 @@ class PostUpdate(UpdateView):
     template_name = 'post_edit.html'
 
 
-# Представление удаляющее товар.
-
-
-
+# Представление удаляющее пост.
 class PostDelete(DeleteView):
     model = Post
     template_name = 'post_delete.html'
