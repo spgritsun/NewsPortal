@@ -1,8 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 # Импортируем класс, который говорит нам о том,
 # что в этом представлении мы будем выводить список объектов из БД
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+
+from NewsPortal.settings import LOGIN_REDIRECT_URL
 from .forms import PostForm
 from .models import Post
 from .filters import PostFilter
@@ -121,7 +124,7 @@ class PostCreate(CreateView):
 
 
 # Добавляем представление для изменения постов.
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin, UpdateView):
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'

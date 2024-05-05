@@ -5,6 +5,9 @@ from django.db.models import Sum
 # Create your models here.
 from django.urls import reverse
 
+from allauth.account.forms import SignupForm
+from django.contrib.auth.models import Group
+
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -74,3 +77,12 @@ class Comment(models.Model):
 class PostCategory(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+
+class BasicSignupForm(SignupForm):
+
+    def save(self, request):
+        user = super(BasicSignupForm, self).save(request)
+        basic_group = Group.objects.get(name='common')
+        basic_group.user_set.add(user)
+        return user
