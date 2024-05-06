@@ -1,9 +1,11 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.models import Group
+from django.shortcuts import render, redirect
 # Импортируем класс, который говорит нам о том,
 # что в этом представлении мы будем выводить список объектов из БД
 from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 
 from NewsPortal.settings import LOGIN_REDIRECT_URL
 from .forms import PostForm
@@ -90,7 +92,8 @@ class PostList2(ListView):
 
 
 # Добавляем новое представление для создания постов.
-class PostCreate(CreateView):
+class PostCreate(PermissionRequiredMixin, CreateView):
+    permission_required = 'main.add_post'
     # Указываем нашу разработанную форму
     form_class = PostForm
     # модель товаров
@@ -124,7 +127,8 @@ class PostCreate(CreateView):
 
 
 # Добавляем представление для изменения постов.
-class PostUpdate(LoginRequiredMixin, UpdateView):
+class PostUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    permission_required = 'main.change_post'
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
@@ -132,9 +136,25 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
 
 # Представление удаляющее пост.
 class PostDelete(DeleteView):
+
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post_list')
 
 
+class PersonalView(LoginRequiredMixin, TemplateView):
+    template_name = 'personal/personal.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_not_author'] = not self.request.user.groups.filter(name='authors').exists()
+        return context
+
+
+@login_required
+def upgrade_me(request):
+    user = request.user
+    authors_group = Group.objects.get(name='authors')
+    if not request.user.groups.filter(name='authors').exists():
+        authors_group.user_set.add(user)
+    return redirect('/login/')
