@@ -8,3 +8,4 @@ register = template.Library()
 def latest_news_pk():
     l_news_pk = Post.get_latest_news_pk()
     return l_news_pk
+

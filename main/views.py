@@ -133,10 +133,25 @@ class PostUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Post
     template_name = 'post_edit.html'
 
+    def is_edited(self):
+        if self.request.path == reverse('news_update', kwargs={'pk': self.kwargs['pk']}):
+            is_edited = 'news'
+        elif self.request.path == reverse('articles_update', kwargs={'pk': self.kwargs['pk']}):
+            is_edited = 'articles'
+        elif self.request.path == reverse('post_update', kwargs={'pk': self.kwargs['pk']}):
+            is_edited = 'posts'
+        else:
+            is_edited = 'error'
+        return is_edited
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_edited'] = self.is_edited()
+        return context
+
 
 # Представление удаляющее пост.
 class PostDelete(DeleteView):
-
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post_list')

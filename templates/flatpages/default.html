@@ -53,7 +53,11 @@
                            <a class="nav-link" href="/posts/">Все посты</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link" href="/login/">Войти</a>
+                          {% if user.is_authenticated %}
+                            <a class="nav-link " href="/login/">{{request.user.username}}</a>
+                          {% else %}
+                            <a class="nav-link" href="/login/">Войти</a>
+                          {% endif %}
                        </li>
                    </ul>
                </div>

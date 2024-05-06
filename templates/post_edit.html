@@ -1,17 +1,29 @@
 {% extends 'flatpages/default.html' %}
 {% block title %}
-    {% if is_news %}
-    Create news
+    {% if is_news%}
+        Create news
+    {% elif  is_edited == 'news' %}
+        Edit news
+    {% elif  is_edited == 'articles' %}
+        Edit article
+    {% elif  is_edited == 'posts' %}
+        Edit post    
     {% else %}
-    Create article
+        Create article
     {% endif %}
 {% endblock title %}
 {% block content %}
-{% if is_news %}
-    <h3>Создать новость</h3>
-    {% else %}
+    {% if is_news %}
+        <h3>Создать новость</h3>
+    {% elif  is_edited == 'news' %}
+        <h3>Редактировать новость</h3>
+    {% elif  is_edited == 'articles' %}
+        <h3>Редактировать статью</h3>
+    {% elif  is_edited == 'posts' %}
+        <h3>Редактировать пост</h3>
+{% else %}
     <h3>Создать статью</h3>
-    {% endif %}
+{% endif %}
 
 <hr>
 <form action="" method="post">
