@@ -161,6 +161,6 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/posts/'
+LOGIN_REDIRECT_URL = '/login/'
 
 ACCOUNT_FORMS = {'signup': 'main.models.BasicSignupForm'}
