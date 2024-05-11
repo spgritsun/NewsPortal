@@ -24,4 +24,5 @@ urlpatterns = [
     path('posts/', PostList2.as_view(), name='post_list'),
     path('', PostList2.as_view(), name='post_list'),
     path('upgrade/', upgrade_me, name='upgrade')
+    # path('categories/<int:pk>', upgrade_me, name='')
 ]
