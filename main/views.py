@@ -199,3 +199,15 @@ def subscribe (request, pk):
     category.subscribers.add(user)
     message = 'Вы успешно подписались на рассылку статей и новостей категории'
     return render(request, 'subscribe.html', {'category': category, 'message': message})
+
+
+@login_required
+def unsubscribe(request, pk):
+    user = request.user
+    category = Category.objects.get(id=pk)
+
+    if user in category.subscribers.all():
+        category.subscribers.remove(user)
+        message = 'Вы успешно отписались от рассылки статей и новостей категории'
+
+    return render(request, 'subscribe.html', {'category': category, 'message': message})
