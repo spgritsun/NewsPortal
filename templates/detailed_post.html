@@ -15,6 +15,10 @@ Detailed view
        <table class="table"> <!-- Начинаем описывать таблицу -->
 
            <tr> <!-- Добавляем строку -->
+               <th> <!-- Добавляем ячейку в строку -->
+
+                   Категория
+               </th>
 
                <th> <!-- Добавляем ячейку в строку -->
 
@@ -28,6 +32,10 @@ Detailed view
                </th>
                </tr> <!-- Не забываем закрыть HTML-тег строки -->
                    <tr>
+                       <td>{% for category in post.categories.all %}
+                        <a href="#" style="color: black;">{{ category.category_name }}</a>
+                        {% endfor %}
+                   </td>
                        <td>{{ post.post_headline|censor }}</td>
                        <td>{{ post.post_text|censor }}</td>
                        <td>{{ post.post_time|date:'j.m.Y'}}</td>

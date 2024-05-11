@@ -22,6 +22,9 @@ Posts
                </th>
                <th> <!-- Добавляем ячейку в строку -->
 
+                   Категория
+               </th>
+               <th> <!-- Добавляем ячейку в строку -->
                    Новость
                </th>
                <th> <!-- Добавляем ячейку в строку -->
@@ -39,6 +42,10 @@ Posts
            {% for post in posts1 %}
                <tr>
                    <td>{{ post.pk }}</td>
+                   <td>{% for category in post.categories.all %}
+                        <a href="#" style="color: black;">{{ category.category_name }}</a>
+                        {% endfor %}
+                   </td>
                    <td>{% if post.is_news %} X {% endif %}</td>
                    <td>{{ post.post_headline|censor  }}</td>
                    <td>{{ post.post_time|date:'j.m.Y H:i'}}</td>

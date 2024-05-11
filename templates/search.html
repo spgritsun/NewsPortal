@@ -25,6 +25,10 @@ News search
 
                <th> <!-- Добавляем ячейку в строку -->
 
+                   Категория
+               </th>
+               <th> <!-- Добавляем ячейку в строку -->
+
                    Заголовок
                </th>
                <th> <!-- Добавляем ещё одну ячейку в строку и так далее -->
@@ -38,6 +42,10 @@ News search
            {% for post in posts1 %}
                {% if post.is_news %}
                <tr>
+                   <td>{% for category in post.categories.all %}
+                        <a href="#" style="color: black;">{{ category.category_name }}</a>
+                        {% endfor %}
+                   </td>
                    <td>{{ post.post_headline|censor  }}</td>
                    <td>{{ post.post_time|date:'j.m.Y H:i'}}</td>
                    <td>{{ post.post_text|truncatechars:20|censor  }}</td>
