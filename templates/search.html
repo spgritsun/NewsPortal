@@ -43,7 +43,7 @@ News search
                {% if post.is_news %}
                <tr>
                    <td>{% for category in post.categories.all %}
-                        <a href="#" style="color: black;">{{ category.category_name }}</a>
+                        <a href="/categories/{{ category.pk }}" style="color: black;">{{ category.category_name }}</a>
                         {% endfor %}
                    </td>
                    <td>{{ post.post_headline|censor  }}</td>
