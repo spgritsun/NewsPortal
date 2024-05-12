@@ -14,6 +14,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from dotenv import load_dotenv
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -39,7 +41,7 @@ INSTALLED_APPS = [
     # подключаем ещё приложения
     'django.contrib.sites',
     'django.contrib.flatpages',
-    'main',
+    'main.apps.MainConfig',
     'fpages',
     'django_filters',
     'allauth',
@@ -163,3 +165,15 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/login/'
 
 ACCOUNT_FORMS = {'signup': 'main.models.BasicSignupForm'}
+
+SITE_URL = 'http://127.0.0.1:8000'
+load_dotenv()
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_USER = 'sg25300812@yandex.ru'
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = 'tvzwpqzhiryvkqwk'
+EMAIL_USE_SSL = True
+# DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+DEFAULT_FROM_EMAIL = 'sg25300812@yandex.ru'
