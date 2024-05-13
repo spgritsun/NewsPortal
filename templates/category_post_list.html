@@ -16,7 +16,7 @@
         <button><a href="{% url 'subscribe' category.id %}" style="text-decoration: none; color: black;">Подписаться</a></button>
 
     {% else %}
-    <h3>Вы можете отписаться от новостей и статей категории "{{ category.category_name }}"</h3>
+    <h3>Вы подписаны на рассылку новостей и статей категории "{{ category.category_name }}"</h3>
         <button><a href="{% url 'unsubscribe' category.id %}" style="text-decoration: none; color: black;
 ">Отписаться</a></button>
     {% endif %}

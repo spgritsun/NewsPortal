@@ -12,7 +12,8 @@ def send_notification(preview, pk, post_headline, subscribers_email_list):
         'post_created_email.html',
         {
             'text': preview,
-            'link': f'{SITE_URL}/posts/{pk}'
+            'link': f'{SITE_URL}/posts/{pk}',
+
         }
     )
     msg = EmailMultiAlternatives(
