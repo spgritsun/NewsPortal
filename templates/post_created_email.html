@@ -5,8 +5,14 @@
     <title>Title</title>
 </head>
 <body>
+Внимание! Опубликован новый <a href="{{ link }}">пост</a>
+в {% if cat_name_list|length == 1 %}категории{% else %}категориях{% endif %}
 
-Новый <a href="{{ link }}">пост</a> в категории, на которую вы подписаны
+{% for cat_name in cat_name_list%}
+    {{ cat_name }},
+{% endfor %}
+
+на {% if cat_name_list|length == 1 %}которую вы{% else %}которые вы, возможно,{% endif %} подписаны.
 <p>{{ text }}</p>
 </body>
 </html>
