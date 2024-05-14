@@ -41,6 +41,16 @@ Detailed view
                        <td>{{ post.post_time|date:'j.m.Y'}}</td>
                    </tr>
        </table> <!-- ... и таблицы -->
+       <br>
+      <div  style="display: flex; justify-content: center; align-items: center;">
+    <div style="margin-right: 10px;">
+        <button><a href="{% url 'post_update' post.pk %}" style="text-decoration: none; color: black;">Редактировать</a></button>
+    </div>
+    <div>
+        <button><a href="{% url 'post_delete' post.pk %}" style="text-decoration: none; color: black;">Удалить</a></button>
+    </div>
+</div>
+
    {% else %}
        <!-- Если постов нет или пост есть, но он не новость, говорим, что новостей нет ;) -->
        <h4>По этому адресу нет постов!</h4>

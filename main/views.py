@@ -151,7 +151,8 @@ class PostUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
 
 
 # Представление удаляющее пост.
-class PostDelete(DeleteView):
+
+class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post_list')
@@ -189,11 +190,12 @@ class CategoryPostListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['is_not_subscriber'] = self.request.user not in self.category.subscribers.all()
-        context ['category'] = self.category
+        context['category'] = self.category
         return context
 
+
 @login_required
-def subscribe (request, pk):
+def subscribe(request, pk):
     user = request.user
     category = Category.objects.get(id=pk)
     category.subscribers.add(user)
