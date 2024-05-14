@@ -7,6 +7,9 @@ from django.urls import reverse
 
 from allauth.account.forms import SignupForm
 from django.contrib.auth.models import Group
+from pytz import timezone
+from django.utils import timezone
+from datetime import datetime
 
 
 class Author(models.Model):
@@ -30,7 +33,7 @@ class Category(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     is_news = models.BooleanField(default=True)
-    post_time = models.DateTimeField(auto_now_add=True)
+    post_time = models.DateTimeField(default=timezone.now)
     categories = models.ManyToManyField(Category, through='PostCategory')
     post_headline = models.CharField(max_length=100)
     post_text = models.TextField()
