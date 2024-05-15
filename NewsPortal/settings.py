@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.yandex',
     'allauth.socialaccount.providers.vk',
-    'django_apscheduler'
+    'django_apscheduler',
+    'django_celery_results'
 ]
 SITE_ID = 1
 

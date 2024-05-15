@@ -23,6 +23,7 @@ from main.views import PersonalView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('celery_results/', include('django_celery_results.urls')),
     path('pages/', include('django.contrib.flatpages.urls')),
     path('', include('main.urls')),
     path('accounts/', include('allauth.urls')),
