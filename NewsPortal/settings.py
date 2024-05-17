@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.yandex',
     'allauth.socialaccount.providers.vk',
     'django_apscheduler',
-    'django_celery_results'
+    'django_celery_results',
+    'django_celery_beat',
 ]
 SITE_ID = 1
 
@@ -184,8 +185,8 @@ APSCHEDULER_RUN_NOW_TIMEOUT = 25
 
 CELERY_BROKER_URL = 'redis://:KV85sYlBu86ZO1bPVZDlAAsCNUvMe0Op@redis-17910.c304.europe-west1-2.gce.redns.redis-cloud' \
                     '.com:17910 '
-CELERY_RESULT_BACKEND = 'redis://:KV85sYlBu86ZO1bPVZDlAAsCNUvMe0Op@redis-17910.c304.europe-west1-2.gce.redns.redis' \
-                        '-cloud.com:17910 '
+CELERY_RESULT_BACKEND = 'django-db'
+
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'

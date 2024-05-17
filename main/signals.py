@@ -5,27 +5,7 @@ from django.template.loader import render_to_string
 
 from NewsPortal.settings import SITE_URL, DEFAULT_FROM_EMAIL
 from main.models import PostCategory
-
-
-def send_notification(preview, pk, post_headline, subscribers_email_list, cat_name_list):
-    html_content = render_to_string(
-        'post_created_email.html',
-        {
-            'text': preview,
-            'link': f'{SITE_URL}/posts/{pk}',
-            'cat_name_list': cat_name_list,
-
-        }
-    )
-    msg = EmailMultiAlternatives(
-        subject=post_headline,
-        body='',
-        from_email=DEFAULT_FROM_EMAIL,
-        to=subscribers_email_list,
-    )
-
-    msg.attach_alternative(html_content, 'text/html')
-    msg.send()
+from main.tasks import send_notification
 
 
 @receiver(m2m_changed, sender=PostCategory)
@@ -41,5 +21,5 @@ def notify_about_new_post(sender, instance, **kwargs):
 
         subscribers_email_list = [subscriber.email for subscriber in subscribers if subscriber.email]
 
-        send_notification(instance.preview(), instance.pk, instance.post_headline, subscribers_email_list,
-                          cat_name_list)
+        send_notification.delay(instance.preview(), instance.pk, instance.post_headline, subscribers_email_list,
+                                cat_name_list)

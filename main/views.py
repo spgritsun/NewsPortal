@@ -1,3 +1,4 @@
+from datetime import timedelta
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.models import Group
@@ -5,12 +6,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Импортируем класс, который говорит нам о том,
 # что в этом представлении мы будем выводить список объектов из БД
 from django.urls import reverse_lazy, reverse
+from django.utils import timezone
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 
 from NewsPortal.settings import LOGIN_REDIRECT_URL
 from .forms import PostForm
 from .models import Post, Category
 from .filters import PostFilter
+from django.http import HttpResponse
 
 
 class PostList(ListView):
@@ -211,5 +215,4 @@ def unsubscribe(request, pk):
     if user in category.subscribers.all():
         category.subscribers.remove(user)
         message = 'Вы успешно отписались от рассылки статей и новостей категории'
-
-    return render(request, 'subscribe.html', {'category': category, 'message': message})
+        return render(request, 'subscribe.html', {'category': category, 'message': message})
