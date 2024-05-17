@@ -6,8 +6,10 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils import timezone
 
+from NewsPortal.celery import app
 from NewsPortal.settings import SITE_URL, DEFAULT_FROM_EMAIL
 from main.models import Post, Category
+from celery.schedules import crontab
 
 
 @shared_task
@@ -58,3 +60,11 @@ def send_daily_posts():
     )
     msg.attach_alternative(html_content, 'text/html')
     msg.send()
+
+
+app.conf.beat_schedule = {
+    'action_every_monday_8am': {
+        'task': 'main.tasks.send_daily_posts',
+        'schedule': crontab(hour=8, minute=0, day_of_week='monday')
+    },
+}
