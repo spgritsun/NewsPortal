@@ -21,6 +21,16 @@ from django.urls import path, include
 
 from main.views import PersonalView
 
+import logging
+
+logger = logging.getLogger('django.request')
+
+logger.debug('DEBUG level message')
+logger.info('INFO level message')
+logger.warning('WARNING level message')
+logger.error('ERROR level message')
+logger.critical('CRITICAL level message')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('celery_results/', include('django_celery_results.urls')),

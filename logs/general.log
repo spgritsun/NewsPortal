@@ -1,0 +1,126 @@
+2024-05-21 15:39:31,308 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 15:39:32,305 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 15:39:32,313 - INFO - urls - test INFO level message
+2024-05-21 15:39:32,313 - WARNING - urls - test WARNING level message
+2024-05-21 15:39:32,313 - ERROR - urls - test ERROR level message
+2024-05-21 15:39:32,313 - CRITICAL - urls - test CRITICAL level message
+2024-05-21 15:45:45,033 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\logging_settings.py changed, reloading.
+2024-05-21 15:45:46,012 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 15:45:46,017 - INFO - urls - test INFO level message
+2024-05-21 15:45:46,017 - WARNING - urls - test WARNING level message
+2024-05-21 15:45:46,017 - ERROR - urls - test ERROR level message
+2024-05-21 15:45:46,017 - CRITICAL - urls - test CRITICAL level message
+2024-05-21 15:46:45,578 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\logging_settings.py changed, reloading.
+2024-05-21 15:46:46,686 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 15:46:46,691 - INFO - urls - test INFO level message
+2024-05-21 15:46:46,691 - WARNING - urls - test WARNING level message
+2024-05-21 15:46:46,691 - ERROR - urls - test ERROR level message
+2024-05-21 15:46:46,691 - CRITICAL - urls - test CRITICAL level message
+2024-05-21 16:00:42,215 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 16:00:43,293 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 16:00:43,302 - INFO - urls - INFO level message
+2024-05-21 16:00:43,302 - WARNING - urls - WARNING level message
+2024-05-21 16:00:43,302 - ERROR - urls - ERROR level message
+2024-05-21 16:00:43,302 - CRITICAL - urls - CRITICAL level message
+2024-05-21 16:07:53,384 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 16:07:54,353 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 16:07:54,361 - INFO - urls - INFO level message
+2024-05-21 16:07:54,361 - WARNING - urls - WARNING level message
+2024-05-21 16:07:54,361 - ERROR - urls - ERROR level message
+2024-05-21 16:07:54,388 - CRITICAL - urls - CRITICAL level message
+2024-05-21 16:09:27,045 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 16:09:28,060 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 16:10:43,047 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 16:10:44,029 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 16:10:44,037 - INFO - urls - INFO level message
+2024-05-21 16:10:44,037 - WARNING - urls - WARNING level message
+2024-05-21 16:10:44,037 - ERROR - urls - ERROR level message
+2024-05-21 16:10:44,037 - CRITICAL - urls - CRITICAL level message
+2024-05-21 16:12:15,744 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 16:12:16,726 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 16:12:16,735 - INFO - urls - INFO level message
+2024-05-21 16:12:16,735 - WARNING - urls - WARNING level message
+2024-05-21 16:12:16,735 - ERROR - urls - ERROR level message
+2024-05-21 16:12:16,735 - CRITICAL - urls - CRITICAL level message
+2024-05-21 16:13:25,254 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 16:13:26,213 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 16:13:26,219 - INFO - urls - INFO level message
+2024-05-21 16:13:26,220 - WARNING - urls - WARNING level message
+2024-05-21 16:13:26,220 - ERROR - urls - ERROR level message
+2024-05-21 16:13:26,220 - CRITICAL - urls - CRITICAL level message
+2024-05-21 16:22:02,472 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\settings.py changed, reloading.
+2024-05-21 16:22:03,521 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 16:22:03,526 - INFO - urls - INFO level message
+2024-05-21 16:22:03,526 - WARNING - urls - WARNING level message
+2024-05-21 16:22:03,527 - ERROR - urls - ERROR level message
+2024-05-21 16:22:03,527 - CRITICAL - urls - CRITICAL level message
+2024-05-21 16:24:18,916 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\settings.py changed, reloading.
+2024-05-21 16:24:19,948 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 16:24:19,953 - INFO - urls - INFO level message
+2024-05-21 16:24:19,953 - WARNING - urls - WARNING level message
+2024-05-21 16:24:19,953 - ERROR - urls - ERROR level message
+2024-05-21 16:24:19,953 - CRITICAL - urls - CRITICAL level message
+2024-05-21 16:32:03,651 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 16:32:04,634 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 17:22:21,289 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 17:22:22,292 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 17:22:22,300 - INFO - urls - INFO level message
+2024-05-21 17:22:22,300 - WARNING - urls - WARNING level message
+2024-05-21 17:22:22,300 - ERROR - urls - ERROR level message
+2024-05-21 17:22:22,502 - CRITICAL - urls - CRITICAL level message
+2024-05-21 17:28:12,466 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\logging_settings.py changed, reloading.
+2024-05-21 17:28:13,476 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 17:28:13,729 - INFO - urls - INFO level message
+2024-05-21 17:28:13,961 - WARNING - urls - WARNING level message
+2024-05-21 17:28:14,159 - ERROR - urls - ERROR level message
+2024-05-21 17:28:14,366 - CRITICAL - urls - CRITICAL level message
+2024-05-21 17:31:56,801 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\logging_settings.py changed, reloading.
+2024-05-21 17:31:57,791 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 17:31:57,795 - INFO - urls - INFO level message
+2024-05-21 17:31:57,795 - WARNING - urls - WARNING level message
+2024-05-21 17:31:57,795 - ERROR - urls - ERROR level message
+2024-05-21 17:31:57,998 - CRITICAL - urls - CRITICAL level message
+2024-05-21 17:39:05,646 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 17:39:05,651 - INFO - urls - INFO level message
+2024-05-21 17:39:05,651 - WARNING - urls - WARNING level message
+2024-05-21 17:39:05,651 - ERROR - urls - ERROR level message
+2024-05-21 17:39:05,919 - CRITICAL - urls - CRITICAL level message
+2024-05-21 17:51:49,310 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\logging_settings.py changed, reloading.
+2024-05-21 17:51:50,356 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 17:51:50,361 - INFO - urls - INFO level message
+2024-05-21 17:51:50,361 - WARNING - urls - WARNING level message
+2024-05-21 17:51:50,361 - ERROR - urls - ERROR level message
+2024-05-21 17:51:50,629 - CRITICAL - urls - CRITICAL level message
+2024-05-21 17:52:49,202 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 17:52:49,207 - INFO - urls - INFO level message
+2024-05-21 17:52:49,207 - WARNING - urls - WARNING level message
+2024-05-21 17:52:49,207 - ERROR - urls - ERROR level message
+2024-05-21 17:52:49,420 - CRITICAL - urls - CRITICAL level message
+2024-05-21 17:54:00,287 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 17:54:01,283 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 17:54:01,291 - INFO - urls - INFO level message
+2024-05-21 17:54:01,291 - WARNING - urls - WARNING level message
+2024-05-21 17:54:01,291 - ERROR - urls - ERROR level message
+2024-05-21 17:54:01,504 - CRITICAL - urls - CRITICAL level message
+2024-05-21 17:54:01,703 - INFO - urls - INFO level message
+2024-05-21 17:54:01,703 - WARNING - urls - WARNING level message
+2024-05-21 17:54:01,703 - ERROR - urls - ERROR level message
+2024-05-21 17:54:01,944 - CRITICAL - urls - CRITICAL level message
+2024-05-21 17:54:33,495 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\urls.py changed, reloading.
+2024-05-21 17:54:34,468 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 17:54:34,476 - INFO - urls - INFO level message
+2024-05-21 17:54:34,476 - WARNING - urls - WARNING level message
+2024-05-21 17:54:34,476 - ERROR - urls - ERROR level message
+2024-05-21 17:54:34,685 - CRITICAL - urls - CRITICAL level message
+2024-05-21 19:03:23,397 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\settings.py changed, reloading.
+2024-05-21 19:03:24,449 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 19:03:24,455 - INFO - urls - INFO level message
+2024-05-21 19:03:24,455 - WARNING - urls - WARNING level message
+2024-05-21 19:03:24,455 - ERROR - urls - ERROR level message
+2024-05-21 19:03:25,115 - CRITICAL - urls - CRITICAL level message
+2024-05-21 19:08:27,107 - INFO - autoreload - C:\Users\ой\PycharmProjects\NewsPortal\NewsPortal\settings.py changed, reloading.
+2024-05-21 19:08:28,131 - INFO - autoreload - Watching for file changes with StatReloader
+2024-05-21 19:08:28,136 - INFO - urls - INFO level message
+2024-05-21 19:08:28,136 - WARNING - urls - WARNING level message
+2024-05-21 19:08:28,136 - ERROR - urls - ERROR level message
+2024-05-21 19:08:28,757 - CRITICAL - urls - CRITICAL level message
